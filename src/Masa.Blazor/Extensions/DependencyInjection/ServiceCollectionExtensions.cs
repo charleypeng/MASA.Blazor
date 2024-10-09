@@ -100,6 +100,8 @@ public static class ServiceCollectionExtensions
 
         services.TryAddScoped<IPageStackNavControllerFactory, PageStackNavControllerFactory>();
         services.TryAddScoped(s => s.GetRequiredService<IPageStackNavControllerFactory>().Create(string.Empty));
+        
+        services.TryAddScoped<IScreenService, ScreenService>();
 
         return new MasaBlazorBuilder(services);
     }

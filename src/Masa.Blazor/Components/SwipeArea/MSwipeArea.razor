@@ -1,12 +1,15 @@
 ﻿@namespace Masa.Blazor
 @inherits MasaComponentBase
 
-<div class="@GetClass()"
+<div class="@GetClass() fill-height fill-width"
      style="@GetStyle()"
      id="@Id"
      @ref="@Ref"
-     @attributes="@Attributes">
-    <div class="swiper-wrapper">
+     @attributes="@Attributes"
+     @ontouchstart="OnTouchStart" @ontouchstart:stopPropagation
+     @ontouchend="OnTouchEnd" @ontouchend:stopPropagation
+     @ontouchcancel="OnTouchCancel" @ontouchcancel:stopPropagation>
+    <div class="swipearea-wrapper">
         <CascadingValue Value="this" IsFixed>
             @ChildContent
         </CascadingValue>
